@@ -26,22 +26,22 @@ def _clean_page(page):
 	# remove information from the page that might not be static
 	
 	# time
-	page = re.sub(b'(\d?\d:?){2,3}', b'',page)
+	page = re.sub(br'(\d?\d:?){2,3}', b'',page)
 	page = re.sub(b'AM', b'',page, flags=re.IGNORECASE)
 	page = re.sub(b'PM', b'',page, flags=re.IGNORECASE)
-	page = re.sub(b'(\d){13}', b'', page) # timestamp
+	page = re.sub(br'(\d){13}', b'', page) # timestamp
 
 	# date with 4 digit year
-	page = re.sub(b'(\d){8}', '',page)
-	page = re.sub(b'\d{4}-\d{2}-\d{2}', b'',page)
-	page = re.sub(b'\d{4}/\d{2}/\d{2}', b'',page)
-	page = re.sub(b'\d{2}-\d{2}-\d{4}', b'',page)
-	page = re.sub(b'\d{2}/\d{2}/\d{4}', b'',page)
+	page = re.sub(br'(\d){8}', '',page)
+	page = re.sub(br'\d{4}-\d{2}-\d{2}', b'',page)
+	page = re.sub(br'\d{4}/\d{2}/\d{2}', b'',page)
+	page = re.sub(br'\d{2}-\d{2}-\d{4}', b'',page)
+	page = re.sub(br'\d{2}/\d{2}/\d{4}', b'',page)
 
 	# date with 2 digit year
-	page = re.sub( b'(\d){6}', '',page)
-	page = re.sub( b'\d{2}-\d{2}-\d{2}', b'',page)
-	page = re.sub( b'\d{2}/\d{2}/\d{2}', b'',page)
+	page = re.sub( br'(\d){6}', '',page)
+	page = re.sub( br'\d{2}-\d{2}-\d{2}', b'',page)
+	page = re.sub( br'\d{2}/\d{2}/\d{2}', b'',page)
 	
 	# links and paths
 	page = re.sub( b'/[^ ]+',  b'', page)
