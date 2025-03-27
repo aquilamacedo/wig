@@ -116,7 +116,11 @@ class Wig(object):
 			if self.options['write_file'] is not None:
 				self.json_outputter.add_error(str(err))
 
-			return
+			if args.input_file is not None:
+				return
+
+			# exit with a non-zero status code to indicate failure
+			sys.exit(1)
 
 		if is_redirected:
 			if not self.options['quiet']:
